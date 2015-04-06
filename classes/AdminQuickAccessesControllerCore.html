@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">8436</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">18</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">141</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-779487035"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-779487035" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/ITreeToolbarButtonCore.html">ITreeToolbarButtonCore</a></li>
+                                                    <li class="interface"><a href="../classes/ITreeToolbarCore.html">ITreeToolbarCore</a></li>
+                                                    <li class="interface"><a href="../classes/StockManagerInterface.html">StockManagerInterface</a></li>
+                                                    <li class="interface"><a href="../classes/TaxManagerInterface.html">TaxManagerInterface</a></li>
+                                                    <li class="interface"><a href="../classes/WebserviceOutputInterface.html">WebserviceOutputInterface</a></li>
+                                                    <li class="interface"><a href="../classes/WebserviceSpecificManagementInterface.html">WebserviceSpecificManagementInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/AbstractLoggerCore.html">AbstractLoggerCore</a></li>
+                                                    <li class="class"><a href="../classes/AddressControllerCore.html">AddressControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AddressCore.html">AddressCore</a></li>
+                                                    <li class="class"><a href="../classes/AddressesControllerCore.html">AddressesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AddressFormatCore.html">AddressFormatCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminAccessControllerCore.html">AdminAccessControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminAddonsCatalogControllerCore.html">AdminAddonsCatalogControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminAddressesControllerCore.html">AdminAddressesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminAdminPreferencesControllerCore.html">AdminAdminPreferencesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminAttachmentsControllerCore.html">AdminAttachmentsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminAttributeGeneratorControllerCore.html">AdminAttributeGeneratorControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminAttributesGroupsControllerCore.html">AdminAttributesGroupsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminBackupControllerCore.html">AdminBackupControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminCarriersControllerCore.html">AdminCarriersControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminCarrierWizardControllerCore.html">AdminCarrierWizardControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminCartRulesControllerCore.html">AdminCartRulesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminCartsControllerCore.html">AdminCartsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminCategoriesControllerCore.html">AdminCategoriesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminCmsCategoriesControllerCore.html">AdminCmsCategoriesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminCmsContentControllerCore.html">AdminCmsContentControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminCmsControllerCore.html">AdminCmsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminContactsControllerCore.html">AdminContactsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminControllerCore.html">AdminControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminCountriesControllerCore.html">AdminCountriesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminCurrenciesControllerCore.html">AdminCurrenciesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminCustomerPreferencesControllerCore.html">AdminCustomerPreferencesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminCustomersControllerCore.html">AdminCustomersControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminCustomerThreadsControllerCore.html">AdminCustomerThreadsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminDashboardControllerCore.html">AdminDashboardControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminDeliverySlipControllerCore.html">AdminDeliverySlipControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminEmailsControllerCore.html">AdminEmailsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminEmployeesControllerCore.html">AdminEmployeesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminFeaturesControllerCore.html">AdminFeaturesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminGendersControllerCore.html">AdminGendersControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminGeolocationControllerCore.html">AdminGeolocationControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminGroupsControllerCore.html">AdminGroupsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminImagesControllerCore.html">AdminImagesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminImportControllerCore.html">AdminImportControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminInformationControllerCore.html">AdminInformationControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminInvoicesControllerCore.html">AdminInvoicesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminLanguagesControllerCore.html">AdminLanguagesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminLocalizationControllerCore.html">AdminLocalizationControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminLoginControllerCore.html">AdminLoginControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminLogsControllerCore.html">AdminLogsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminMaintenanceControllerCore.html">AdminMaintenanceControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminManufacturersControllerCore.html">AdminManufacturersControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminMarketingControllerCore.html">AdminMarketingControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminMetaControllerCore.html">AdminMetaControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminModulesControllerCore.html">AdminModulesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminModulesPositionsControllerCore.html">AdminModulesPositionsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminNotFoundControllerCore.html">AdminNotFoundControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminOrderMessageControllerCore.html">AdminOrderMessageControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminOrderPreferencesControllerCore.html">AdminOrderPreferencesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminOrdersControllerCore.html">AdminOrdersControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminOutstandingControllerCore.html">AdminOutstandingControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminPatternsControllerCore.html">AdminPatternsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminPaymentControllerCore.html">AdminPaymentControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminPdfControllerCore.html">AdminPdfControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminPerformanceControllerCore.html">AdminPerformanceControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminPPreferencesControllerCore.html">AdminPPreferencesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminPreferencesControllerCore.html">AdminPreferencesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminProductsControllerCore.html">AdminProductsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminProfilesControllerCore.html">AdminProfilesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminQuickAccessesControllerCore.html">AdminQuickAccessesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminRangePriceControllerCore.html">AdminRangePriceControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminRangeWeightControllerCore.html">AdminRangeWeightControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminReferrersControllerCore.html">AdminReferrersControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminRequestSqlControllerCore.html">AdminRequestSqlControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminReturnControllerCore.html">AdminReturnControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminScenesControllerCore.html">AdminScenesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminSearchConfControllerCore.html">AdminSearchConfControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminSearchControllerCore.html">AdminSearchControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminSearchEnginesControllerCore.html">AdminSearchEnginesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminShippingControllerCore.html">AdminShippingControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminShopControllerCore.html">AdminShopControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminShopGroupControllerCore.html">AdminShopGroupControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminShopUrlControllerCore.html">AdminShopUrlControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminSlipControllerCore.html">AdminSlipControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminSpecificPriceRuleControllerCore.html">AdminSpecificPriceRuleControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminStatesControllerCore.html">AdminStatesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminStatsControllerCore.html">AdminStatsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminStatsTabControllerCore.html">AdminStatsTabControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminStatusesControllerCore.html">AdminStatusesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminStockConfigurationControllerCore.html">AdminStockConfigurationControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminStockCoverControllerCore.html">AdminStockCoverControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminStockInstantStateControllerCore.html">AdminStockInstantStateControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminStockManagementControllerCore.html">AdminStockManagementControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminStockMvtControllerCore.html">AdminStockMvtControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminStoresControllerCore.html">AdminStoresControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminSuppliersControllerCore.html">AdminSuppliersControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminSupplyOrdersControllerCore.html">AdminSupplyOrdersControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminTabCore.html">AdminTabCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminTabsControllerCore.html">AdminTabsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminTagsControllerCore.html">AdminTagsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminTaxesControllerCore.html">AdminTaxesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminTaxRulesGroupControllerCore.html">AdminTaxRulesGroupControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminThemesControllerCore.html">AdminThemesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminTrackingControllerCore.html">AdminTrackingControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminTranslationsControllerCore.html">AdminTranslationsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminWarehousesControllerCore.html">AdminWarehousesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminWebserviceControllerCore.html">AdminWebserviceControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AdminZonesControllerCore.html">AdminZonesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AliasCore.html">AliasCore</a></li>
+                                                    <li class="class"><a href="../classes/AttachmentControllerCore.html">AttachmentControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/AttachmentCore.html">AttachmentCore</a></li>
+                                                    <li class="class"><a href="../classes/AttributeCore.html">AttributeCore</a></li>
+                                                    <li class="class"><a href="../classes/AttributeGroupCore.html">AttributeGroupCore</a></li>
+                                                    <li class="class"><a href="../classes/AuthControllerCore.html">AuthControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/BestSalesControllerCore.html">BestSalesControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/BlowfishCore.html">BlowfishCore</a></li>
+                                                    <li class="class"><a href="../classes/BoOrder.html">BoOrder</a></li>
+                                                    <li class="class"><a href="../classes/CacheApcCore.html">CacheApcCore</a></li>
+                                                    <li class="class"><a href="../classes/CacheCore.html">CacheCore</a></li>
+                                                    <li class="class"><a href="../classes/CacheFsCore.html">CacheFsCore</a></li>
+                                                    <li class="class"><a href="../classes/CacheMemcacheCore.html">CacheMemcacheCore</a></li>
+                                                    <li class="class"><a href="../classes/CacheXcacheCore.html">CacheXcacheCore</a></li>
+                                                    <li class="class"><a href="../classes/CarrierCore.html">CarrierCore</a></li>
+                                                    <li class="class"><a href="../classes/CarrierModuleCore.html">CarrierModuleCore</a></li>
+                                                    <li class="class"><a href="../classes/CartControllerCore.html">CartControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/CartCore.html">CartCore</a></li>
+                                                    <li class="class"><a href="../classes/CartRuleCore.html">CartRuleCore</a></li>
+                                                    <li class="class"><a href="../classes/CategoryControllerCore.html">CategoryControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/CategoryCore.html">CategoryCore</a></li>
+                                                    <li class="class"><a href="../classes/ChangeCurrencyControllerCore.html">ChangeCurrencyControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/ChartCore.html">ChartCore</a></li>
+                                                    <li class="class"><a href="../classes/CMSCategoryCore.html">CMSCategoryCore</a></li>
+                                                    <li class="class"><a href="../classes/CmsControllerCore.html">CmsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/CMSCore.html">CMSCore</a></li>
+                                                    <li class="class"><a href="../classes/CombinationCore.html">CombinationCore</a></li>
+                                                    <li class="class"><a href="../classes/CompareControllerCore.html">CompareControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/CompareProductCore.html">CompareProductCore</a></li>
+                                                    <li class="class"><a href="../classes/ConfigurationCore.html">ConfigurationCore</a></li>
+                                                    <li class="class"><a href="../classes/ConfigurationKPICore.html">ConfigurationKPICore</a></li>
+                                                    <li class="class"><a href="../classes/ConfigurationTestCore.html">ConfigurationTestCore</a></li>
+                                                    <li class="class"><a href="../classes/ConnectionCore.html">ConnectionCore</a></li>
+                                                    <li class="class"><a href="../classes/ConnectionsSourceCore.html">ConnectionsSourceCore</a></li>
+                                                    <li class="class"><a href="../classes/ContactControllerCore.html">ContactControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/ContactCore.html">ContactCore</a></li>
+                                                    <li class="class"><a href="../classes/ContextCore.html">ContextCore</a></li>
+                                                    <li class="class"><a href="../classes/ControllerCore.html">ControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/ControllerFactoryCore.html">ControllerFactoryCore</a></li>
+                                                    <li class="class"><a href="../classes/CookieCore.html">CookieCore</a></li>
+                                                    <li class="class"><a href="../classes/CountryCore.html">CountryCore</a></li>
+                                                    <li class="class"><a href="../classes/CountyCore.html">CountyCore</a></li>
+                                                    <li class="class"><a href="../classes/Crypt_Blowfish.html">Crypt_Blowfish</a></li>
+                                                    <li class="class"><a href="../classes/CSVCore.html">CSVCore</a></li>
+                                                    <li class="class"><a href="../classes/CurrencyCore.html">CurrencyCore</a></li>
+                                                    <li class="class"><a href="../classes/Curve.html">Curve</a></li>
+                                                    <li class="class"><a href="../classes/CustomerCore.html">CustomerCore</a></li>
+                                                    <li class="class"><a href="../classes/CustomerMessageCore.html">CustomerMessageCore</a></li>
+                                                    <li class="class"><a href="../classes/CustomerThreadCore.html">CustomerThreadCore</a></li>
+                                                    <li class="class"><a href="../classes/CustomizationCore.html">CustomizationCore</a></li>
+                                                    <li class="class"><a href="../classes/CustomizationFieldCore.html">CustomizationFieldCore</a></li>
+                                                    <li class="class"><a href="../classes/DateRangeCore.html">DateRangeCore</a></li>
+                                                    <li class="class"><a href="../classes/DbCore.html">DbCore</a></li>
+                                                    <li class="class"><a href="../classes/DbMySQLiCore.html">DbMySQLiCore</a></li>
+                                                    <li class="class"><a href="../classes/DbPDOCore.html">DbPDOCore</a></li>
+                                                    <li class="class"><a href="../classes/DbQueryCore.html">DbQueryCore</a></li>
+                                                    <li class="class"><a href="../classes/DeliveryCore.html">DeliveryCore</a></li>
+                                                    <li class="class"><a href="../classes/DiscountControllerCore.html">DiscountControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/DiscountCore.html">DiscountCore</a></li>
+                                                    <li class="class"><a href="../classes/DispatcherCore.html">DispatcherCore</a></li>
+                                                    <li class="class"><a href="../classes/EmployeeCore.html">EmployeeCore</a></li>
+                                                    <li class="class"><a href="../classes/FeatureCore.html">FeatureCore</a></li>
+                                                    <li class="class"><a href="../classes/FeatureValueCore.html">FeatureValueCore</a></li>
+                                                    <li class="class"><a href="../classes/FileLoggerCore.html">FileLoggerCore</a></li>
+                                                    <li class="class"><a href="../classes/FileUploaderCore.html">FileUploaderCore</a></li>
+                                                    <li class="class"><a href="../classes/FreeOrder.html">FreeOrder</a></li>
+                                                    <li class="class"><a href="../classes/FrontControllerCore.html">FrontControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/GenderCore.html">GenderCore</a></li>
+                                                    <li class="class"><a href="../classes/GetFileControllerCore.html">GetFileControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/GroupCore.html">GroupCore</a></li>
+                                                    <li class="class"><a href="../classes/GroupReductionCore.html">GroupReductionCore</a></li>
+                                                    <li class="class"><a href="../classes/GuestCore.html">GuestCore</a></li>
+                                                    <li class="class"><a href="../classes/GuestTrackingControllerCore.html">GuestTrackingControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/HelperCalendarCore.html">HelperCalendarCore</a></li>
+                                                    <li class="class"><a href="../classes/HelperCore.html">HelperCore</a></li>
+                                                    <li class="class"><a href="../classes/HelperFormCore.html">HelperFormCore</a></li>
+                                                    <li class="class"><a href="../classes/HelperImageUploaderCore.html">HelperImageUploaderCore</a></li>
+                                                    <li class="class"><a href="../classes/HelperKpiCore.html">HelperKpiCore</a></li>
+                                                    <li class="class"><a href="../classes/HelperKpiRowCore.html">HelperKpiRowCore</a></li>
+                                                    <li class="class"><a href="../classes/HelperListCore.html">HelperListCore</a></li>
+                                                    <li class="class"><a href="../classes/HelperOptionsCore.html">HelperOptionsCore</a></li>
+                                                    <li class="class"><a href="../classes/HelperTreeCategoriesCore.html">HelperTreeCategoriesCore</a></li>
+                                                    <li class="class"><a href="../classes/HelperTreeShopsCore.html">HelperTreeShopsCore</a></li>
+                                                    <li class="class"><a href="../classes/HelperUploaderCore.html">HelperUploaderCore</a></li>
+                                                    <li class="class"><a href="../classes/HelperViewCore.html">HelperViewCore</a></li>
+                                                    <li class="class"><a href="../classes/HistoryControllerCore.html">HistoryControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/HookCore.html">HookCore</a></li>
+                                                    <li class="class"><a href="../classes/HTMLTemplateCore.html">HTMLTemplateCore</a></li>
+                                                    <li class="class"><a href="../classes/HTMLTemplateDeliverySlipCore.html">HTMLTemplateDeliverySlipCore</a></li>
+                                                    <li class="class"><a href="../classes/HTMLTemplateInvoiceCore.html">HTMLTemplateInvoiceCore</a></li>
+                                                    <li class="class"><a href="../classes/HTMLTemplateOrderReturnCore.html">HTMLTemplateOrderReturnCore</a></li>
+                                                    <li class="class"><a href="../classes/HTMLTemplateOrderSlipCore.html">HTMLTemplateOrderSlipCore</a></li>
+                                                    <li class="class"><a href="../classes/HTMLTemplateSupplyOrderFormCore.html">HTMLTemplateSupplyOrderFormCore</a></li>
+                                                    <li class="class"><a href="../classes/IdentityControllerCore.html">IdentityControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/ImageCore.html">ImageCore</a></li>
+                                                    <li class="class"><a href="../classes/ImageManagerCore.html">ImageManagerCore</a></li>
+                                                    <li class="class"><a href="../classes/ImageTypeCore.html">ImageTypeCore</a></li>
+                                                    <li class="class"><a href="../classes/ImportModuleCore.html">ImportModuleCore</a></li>
+                                                    <li class="class"><a href="../classes/IndexControllerCore.html">IndexControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/LanguageCore.html">LanguageCore</a></li>
+                                                    <li class="class"><a href="../classes/LinkCore.html">LinkCore</a></li>
+                                                    <li class="class"><a href="../classes/LocalizationPackCore.html">LocalizationPackCore</a></li>
+                                                    <li class="class"><a href="../classes/MailCore.html">MailCore</a></li>
+                                                    <li class="class"><a href="../classes/ManufacturerControllerCore.html">ManufacturerControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/ManufacturerCore.html">ManufacturerCore</a></li>
+                                                    <li class="class"><a href="../classes/MediaCore.html">MediaCore</a></li>
+                                                    <li class="class"><a href="../classes/MessageCore.html">MessageCore</a></li>
+                                                    <li class="class"><a href="../classes/MetaCore.html">MetaCore</a></li>
+                                                    <li class="class"><a href="../classes/ModuleAdminControllerCore.html">ModuleAdminControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/ModuleCore.html">ModuleCore</a></li>
+                                                    <li class="class"><a href="../classes/ModuleFrontControllerCore.html">ModuleFrontControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/ModuleGraphCore.html">ModuleGraphCore</a></li>
+                                                    <li class="class"><a href="../classes/ModuleGraphEngineCore.html">ModuleGraphEngineCore</a></li>
+                                                    <li class="class"><a href="../classes/ModuleGridCore.html">ModuleGridCore</a></li>
+                                                    <li class="class"><a href="../classes/ModuleGridEngineCore.html">ModuleGridEngineCore</a></li>
+                                                    <li class="class"><a href="../classes/MyAccountControllerCore.html">MyAccountControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/MySQLCore.html">MySQLCore</a></li>
+                                                    <li class="class"><a href="../classes/NewProductsControllerCore.html">NewProductsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/NotificationCore.html">NotificationCore</a></li>
+                                                    <li class="class"><a href="../classes/ObjectModelCore.html">ObjectModelCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderCarrierCore.html">OrderCarrierCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderCartRuleCore.html">OrderCartRuleCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderConfirmationControllerCore.html">OrderConfirmationControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderControllerCore.html">OrderControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderCore.html">OrderCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderDetailControllerCore.html">OrderDetailControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderDetailCore.html">OrderDetailCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderDiscountCore.html">OrderDiscountCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderFollowControllerCore.html">OrderFollowControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderHistoryCore.html">OrderHistoryCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderInvoiceCore.html">OrderInvoiceCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderMessageCore.html">OrderMessageCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderOpcControllerCore.html">OrderOpcControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderPaymentCore.html">OrderPaymentCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderReturnControllerCore.html">OrderReturnControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderReturnCore.html">OrderReturnCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderReturnStateCore.html">OrderReturnStateCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderSlipControllerCore.html">OrderSlipControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderSlipCore.html">OrderSlipCore</a></li>
+                                                    <li class="class"><a href="../classes/OrderStateCore.html">OrderStateCore</a></li>
+                                                    <li class="class"><a href="../classes/PackCore.html">PackCore</a></li>
+                                                    <li class="class"><a href="../classes/PageCore.html">PageCore</a></li>
+                                                    <li class="class"><a href="../classes/PageNotFoundControllerCore.html">PageNotFoundControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/ParentOrderControllerCore.html">ParentOrderControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/PasswordControllerCore.html">PasswordControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/PaymentCCCore.html">PaymentCCCore</a></li>
+                                                    <li class="class"><a href="../classes/PaymentModuleCore.html">PaymentModuleCore</a></li>
+                                                    <li class="class"><a href="../classes/PDFCore.html">PDFCore</a></li>
+                                                    <li class="class"><a href="../classes/PDFGeneratorCore.html">PDFGeneratorCore</a></li>
+                                                    <li class="class"><a href="../classes/PdfInvoiceControllerCore.html">PdfInvoiceControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/PdfOrderReturnControllerCore.html">PdfOrderReturnControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/PdfOrderSlipControllerCore.html">PdfOrderSlipControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/PrestaShopAutoload.html">PrestaShopAutoload</a></li>
+                                                    <li class="class"><a href="../classes/PrestaShopBackupCore.html">PrestaShopBackupCore</a></li>
+                                                    <li class="class"><a href="../classes/PrestaShopCollectionCore.html">PrestaShopCollectionCore</a></li>
+                                                    <li class="class"><a href="../classes/PrestaShopDatabaseExceptionCore.html">PrestaShopDatabaseExceptionCore</a></li>
+                                                    <li class="class"><a href="../classes/PrestaShopExceptionCore.html">PrestaShopExceptionCore</a></li>
+                                                    <li class="class"><a href="../classes/PrestaShopLoggerCore.html">PrestaShopLoggerCore</a></li>
+                                                    <li class="class"><a href="../classes/PrestaShopModuleExceptionCore.html">PrestaShopModuleExceptionCore</a></li>
+                                                    <li class="class"><a href="../classes/PrestaShopPaymentExceptionCore.html">PrestaShopPaymentExceptionCore</a></li>
+                                                    <li class="class"><a href="../classes/PricesDropControllerCore.html">PricesDropControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/ProductControllerCore.html">ProductControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/ProductCore.html">ProductCore</a></li>
+                                                    <li class="class"><a href="../classes/ProductDownloadCore.html">ProductDownloadCore</a></li>
+                                                    <li class="class"><a href="../classes/ProductSaleCore.html">ProductSaleCore</a></li>
+                                                    <li class="class"><a href="../classes/ProductSupplierCore.html">ProductSupplierCore</a></li>
+                                                    <li class="class"><a href="../classes/ProfileCore.html">ProfileCore</a></li>
+                                                    <li class="class"><a href="../classes/QqUploadedFileForm.html">QqUploadedFileForm</a></li>
+                                                    <li class="class"><a href="../classes/QqUploadedFileXhr.html">QqUploadedFileXhr</a></li>
+                                                    <li class="class"><a href="../classes/QuickAccessCore.html">QuickAccessCore</a></li>
+                                                    <li class="class"><a href="../classes/RangePriceCore.html">RangePriceCore</a></li>
+                                                    <li class="class"><a href="../classes/RangeWeightCore.html">RangeWeightCore</a></li>
+                                                    <li class="class"><a href="../classes/ReferrerCore.html">ReferrerCore</a></li>
+                                                    <li class="class"><a href="../classes/RequestSqlCore.html">RequestSqlCore</a></li>
+                                                    <li class="class"><a href="../classes/RijndaelCore.html">RijndaelCore</a></li>
+                                                    <li class="class"><a href="../classes/RiskCore.html">RiskCore</a></li>
+                                                    <li class="class"><a href="../classes/SceneCore.html">SceneCore</a></li>
+                                                    <li class="class"><a href="../classes/SearchControllerCore.html">SearchControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/SearchCore.html">SearchCore</a></li>
+                                                    <li class="class"><a href="../classes/SearchEngineCore.html">SearchEngineCore</a></li>
+                                                    <li class="class"><a href="../classes/ShopCore.html">ShopCore</a></li>
+                                                    <li class="class"><a href="../classes/ShopGroupCore.html">ShopGroupCore</a></li>
+                                                    <li class="class"><a href="../classes/ShopUrlCore.html">ShopUrlCore</a></li>
+                                                    <li class="class"><a href="../classes/SitemapControllerCore.html">SitemapControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/Smarty_CacheResource_Mysql.html">Smarty_CacheResource_Mysql</a></li>
+                                                    <li class="class"><a href="../classes/SpecificPriceCore.html">SpecificPriceCore</a></li>
+                                                    <li class="class"><a href="../classes/SpecificPriceRuleCore.html">SpecificPriceRuleCore</a></li>
+                                                    <li class="class"><a href="../classes/StateCore.html">StateCore</a></li>
+                                                    <li class="class"><a href="../classes/StatisticsControllerCore.html">StatisticsControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/StockAvailableCore.html">StockAvailableCore</a></li>
+                                                    <li class="class"><a href="../classes/StockCore.html">StockCore</a></li>
+                                                    <li class="class"><a href="../classes/StockManagerCore.html">StockManagerCore</a></li>
+                                                    <li class="class"><a href="../classes/StockManagerFactoryCore.html">StockManagerFactoryCore</a></li>
+                                                    <li class="class"><a href="../classes/StockManagerModuleCore.html">StockManagerModuleCore</a></li>
+                                                    <li class="class"><a href="../classes/StockMvtCore.html">StockMvtCore</a></li>
+                                                    <li class="class"><a href="../classes/StockMvtReasonCore.html">StockMvtReasonCore</a></li>
+                                                    <li class="class"><a href="../classes/StockMvtWSCore.html">StockMvtWSCore</a></li>
+                                                    <li class="class"><a href="../classes/StoreCore.html">StoreCore</a></li>
+                                                    <li class="class"><a href="../classes/StoresControllerCore.html">StoresControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/SupplierControllerCore.html">SupplierControllerCore</a></li>
+                                                    <li class="class"><a href="../classes/SupplierCore.html">SupplierCore</a></li>
+                                                    <li class="class"><a href="../classes/SupplyOrderCore.html">SupplyOrderCore</a></li>
+                                                    <li class="class"><a href="../classes/SupplyOrderDetailCore.html">SupplyOrderDetailCore</a></li>
+                                                    <li class="class"><a href="../classes/SupplyOrderHistoryCore.html">SupplyOrderHistoryCore</a></li>
+                                                    <li class="class"><a href="../classes/SupplyOrderReceiptHistoryCore.html">SupplyOrderReceiptHistoryCore</a></li>
+                                                    <li class="class"><a href="../classes/SupplyOrderStateCore.html">SupplyOrderStateCore</a></li>
+                                                    <li class="class"><a href="../classes/TabCore.html">TabCore</a></li>
+                                                    <li class="class"><a href="../classes/TagCore.html">TagCore</a></li>
+                                                    <li class="class"><a href="../classes/TaxCalculatorCore.html">TaxCalculatorCore</a></li>
+                                                    <li class="class"><a href="../classes/TaxCore.html">TaxCore</a></li>
+                                                    <li class="class"><a href="../classes/TaxManagerFactoryCore.html">TaxManagerFactoryCore</a></li>
+                                                    <li class="class"><a href="../classes/TaxManagerModuleCore.html">TaxManagerModuleCore</a></li>
+                                                    <li class="class"><a href="../classes/TaxRuleCore.html">TaxRuleCore</a></li>
+                                                    <li class="class"><a href="../classes/TaxRulesGroupCore.html">TaxRulesGroupCore</a></li>
+                                                    <li class="class"><a href="../classes/TaxRulesTaxManagerCore.html">TaxRulesTaxManagerCore</a></li>
+                                                    <li class="class"><a href="../classes/ThemeCore.html">ThemeCore</a></li>
+                                                    <li class="class"><a href="../classes/ToolsCore.html">ToolsCore</a></li>
+                                                    <li class="class"><a href="../classes/TranslateCore.html">TranslateCore</a></li>
+                                                    <li class="class"><a href="../classes/TranslatedConfigurationCore.html">TranslatedConfigurationCore</a></li>
+                                                    <li class="class"><a href="../classes/TreeCore.html">TreeCore</a></li>
+                                                    <li class="class"><a href="../classes/TreeToolbarButtonCore.html">TreeToolbarButtonCore</a></li>
+                                                    <li class="class"><a href="../classes/TreeToolbarCore.html">TreeToolbarCore</a></li>
+                                                    <li class="class"><a href="../classes/TreeToolbarLinkCore.html">TreeToolbarLinkCore</a></li>
+                                                    <li class="class"><a href="../classes/TreeToolbarSearchCategoriesCore.html">TreeToolbarSearchCategoriesCore</a></li>
+                                                    <li class="class"><a href="../classes/TreeToolbarSearchCore.html">TreeToolbarSearchCore</a></li>
+                                                    <li class="class"><a href="../classes/UpgraderCore.html">UpgraderCore</a></li>
+                                                    <li class="class"><a href="../classes/UploaderCore.html">UploaderCore</a></li>
+                                                    <li class="class"><a href="../classes/ValidateCore.html">ValidateCore</a></li>
+                                                    <li class="class"><a href="../classes/WarehouseCore.html">WarehouseCore</a></li>
+                                                    <li class="class"><a href="../classes/WarehouseProductLocationCore.html">WarehouseProductLocationCore</a></li>
+                                                    <li class="class"><a href="../classes/WebserviceExceptionCore.html">WebserviceExceptionCore</a></li>
+                                                    <li class="class"><a href="../classes/WebserviceKeyCore.html">WebserviceKeyCore</a></li>
+                                                    <li class="class"><a href="../classes/WebserviceOutputBuilderCore.html">WebserviceOutputBuilderCore</a></li>
+                                                    <li class="class"><a href="../classes/WebserviceOutputJSON.html">WebserviceOutputJSON</a></li>
+                                                    <li class="class"><a href="../classes/WebserviceOutputXMLCore.html">WebserviceOutputXMLCore</a></li>
+                                                    <li class="class"><a href="../classes/WebserviceRequestCore.html">WebserviceRequestCore</a></li>
+                                                    <li class="class"><a href="../classes/WebserviceSpecificManagementImagesCore.html">WebserviceSpecificManagementImagesCore</a></li>
+                                                    <li class="class"><a href="../classes/WebserviceSpecificManagementSearchCore.html">WebserviceSpecificManagementSearchCore</a></li>
+                                                    <li class="class"><a href="../classes/ZoneCore.html">ZoneCore</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/default.html">\</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\</small>AdminQuickAccessesControllerCore</h1>
+                    <p><em></em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/AdminQuickAccessesControllerCore.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/AdminQuickAccessesControllerCore.html#method_initPageHeaderToolbar" class="">initPageHeaderToolbar()</a><br />
+                                                                    <a href="../classes/AdminQuickAccessesControllerCore.html#method_initProcess" class="">initProcess()</a><br />
+                                                                    <a href="../classes/AdminQuickAccessesControllerCore.html#method_getQuickAccessesList" class="">getQuickAccessesList()</a><br />
+                                                                    <a href="../classes/AdminQuickAccessesControllerCore.html#method_getLinkToken" class="">getLinkToken()</a><br />
+                                                                    <a href="../classes/AdminQuickAccessesControllerCore.html#method_addQuickLink" class="">addQuickLink()</a><br />
+                                                                    <a href="../classes/AdminQuickAccessesControllerCore.html#method_processDelete" class="">processDelete()</a><br />
+                                                                    <a href="../classes/AdminQuickAccessesControllerCore.html#method_ajaxProcessGetUrl" class="">ajaxProcessGetUrl()</a><br />
+                                                                    <a href="../classes/AdminQuickAccessesControllerCore.html#method_processNewWindow" class="">processNewWindow()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No protected properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/controllers.admin.AdminQuickAccessesController.html"><div class="path-wrapper">controllers/admin/AdminQuickAccessesController.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Prestashop</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                                                                                                                                                
+                                        <div class="namespace-wrapper">\AdminController</div>
+                                                                                                    <div class="namespace-wrapper">\AdminQuickAccessesControllerCore</div>
+                            </dd>
+
+                        
+                        
+                        
+                        
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr><td colspan="2"><em>None found</em></td></tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                        
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_initPageHeaderToolbar" name="method_initPageHeaderToolbar" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">initPageHeaderToolbar()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">initPageHeaderToolbar() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_initProcess" name="method_initProcess" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">initProcess()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">initProcess() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getQuickAccessesList" name="method_getQuickAccessesList" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getQuickAccessesList()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getQuickAccessesList() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getLinkToken" name="method_getLinkToken" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getLinkToken()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getLinkToken(  <span class="argument">$item</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td></td>
+                                <td>$item </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_addQuickLink" name="method_addQuickLink" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">addQuickLink()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">addQuickLink() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processDelete" name="method_processDelete" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">processDelete()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processDelete() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_ajaxProcessGetUrl" name="method_ajaxProcessGetUrl" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">ajaxProcessGetUrl()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">ajaxProcessGetUrl() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_processNewWindow" name="method_processNewWindow" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">processNewWindow()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">processNewWindow() </pre>
+                <p><em></em></p>
+                
+
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">AdminQuickAccessesController.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/controllers/admin/AdminQuickAccessesController.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on April 6th, 2015 at 18:17.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
